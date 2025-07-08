@@ -1,30 +1,38 @@
-# scripts/create_product_list.py
 import pandas as pd
 import os
 
-print("--- Creating Master Product List for 'Cool Gadgets' ---")
+print("--- Starting: Creating Final Curated 'Hero' Product List ---")
 
-# This is our master list. You can add or remove products here anytime.
-gadgets_data = [
-    {'id': 101, 'title': "Apple Vision Pro", 'category': "Mixed Reality"},
-    {'id': 102, 'title': "iPhone 16 Pro", 'category': "Smartphones"},
-    {'id': 103, 'title': "Samsung Galaxy S25 Ultra", 'category': "Smartphones"},
-    {'id': 104, 'title': "AirPods Pro 3", 'category': "Audio"},
-    {'id': 105, 'title': "Razer Blade 16 Gaming Laptop", 'category': "Laptops"},
-    {'id': 106, 'title': "Playstation 6", 'category': "Gaming Consoles"},
-    {'id': 107, 'title': "Nintendo Switch 2", 'category': "Gaming Consoles"}
-]
+# --- Configuration ---
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RAW_DATA_DIR = os.path.join(project_root, "data/raw")
+OFFICIAL_PRODUCTS_FILE = os.path.join(RAW_DATA_DIR, "cool_gadgets_products.csv")
 
-# Convert our list of gadgets into a DataFrame
-products_df = pd.DataFrame(gadgets_data)
+# --- The Final, Hand-Picked "Hero" Product List ---
+# This list is focused on major, exciting product categories.
+curated_products = {
+    'id': [101, 102, 103, 104, 105, 106, 107],
+    'title': [
+        'iPhone 16 Pro',                                        # New Smartphone
+        'Samsung Galaxy S25 Ultra',                             # New Smartphone
+        'Sony WH-1000XM5 Wireless Noise Cancelling Headphones', # Audio
+        'Bose QuietComfort Ultra Headphones',                   # Audio
+        'Razer Blade 16 Gaming Laptop',                         # Laptops
+        'GoPro HERO12 Black Action Camera',                     # Cameras
+        'Playstation 5 Pro'                                     # Gaming Consoles (current buzz)
+    ],
+    'category': [
+        'Smartphones', 'Smartphones', 'Audio', 'Audio', 'Laptops', 'Cameras', 'Gaming Consoles'
+    ]
+}
 
-# Define where to save the file
-OUTPUT_DIR = "data/raw"
-os.makedirs(OUTPUT_DIR, exist_ok=True) # This creates the folder if it doesn't exist
-output_path = os.path.join(OUTPUT_DIR, "cool_gadgets_products.csv")
+# Create the DataFrame from our final curated list
+new_products_df = pd.DataFrame(curated_products)
 
-# Save the DataFrame to a CSV file
-products_df.to_csv(output_path, index=False)
+# --- Save this as our new official product list ---
+new_products_df.to_csv(OFFICIAL_PRODUCTS_FILE, index=False)
 
-print(f"Success: Saved {len(products_df)} products to '{output_path}'")
-print("\n--- Master Product List Creation Complete ---")
+print("\n--- SUCCESS! ---")
+print("'cool_gadgets_products.csv' has been created with the product list.")
+print("The final products are:")
+print(new_products_df)

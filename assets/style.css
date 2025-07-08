@@ -1,0 +1,44 @@
+/* assets/style.css */
+
+body {
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.kpi-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.kpi-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 30%;
+}
+
+.chart-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.chart-row-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.half-width-chart {
+    width: 50%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+venv_new/
+
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+
+# Data and output files - we don't want to upload large CSVs or models to GitHub
+data/
+outputs/
+
+# Notebook checkpoints
+.ipynb_checkpoints
+
+config.py
